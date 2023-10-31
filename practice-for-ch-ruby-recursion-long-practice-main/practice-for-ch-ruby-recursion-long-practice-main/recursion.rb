@@ -56,6 +56,21 @@ def bsearch(arr, n)
     return nil if arr.count(n) == 0
     return 0 if arr.length == 1
 
+    sorted = arr.sort
+    mid_idx = sorted.length / 2
+
+    if arr[mid_idx] == n
+        return mid_idx
+    end
+
+    left = sorted[0...mid_idx]
+    right = sorted[mid_idx + 1 .. -1]
+
+    if sorted[mid_idx] < n
+        bsearch(right, n)
+    else
+        bsearch(left, n)
+
     # sorted = arr.sort
     # mid_idx = sorted.length / 2
 
@@ -67,17 +82,23 @@ def bsearch(arr, n)
     #     bsearch(arr[mid_idx+1..-1], n)
     # end
 
-
-aaaa
     # arr[1..-1]
 
 
 end
 
-p bsearch([1, 2, 3], 1) # => 0
-p bsearch([2, 3, 4, 5], 3) # => 1
-p bsearch([2, 4, 6, 8, 10], 6) # => 2
-p bsearch([1, 3, 4, 5, 9], 5) # => 3
-p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+# p bsearch([1, 2, 3], 1) # => 0
+# p bsearch([2, 3, 4, 5], 3) # => 1
+# p bsearch([2, 4, 6, 8, 10], 6) # => 2
+# p bsearch([1, 3, 4, 5, 9], 5) # => 3
+# p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+# p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+# p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+
+def merge_sort(array)
+
+end
+
+def merge(arr1, arr2)
+
+end
