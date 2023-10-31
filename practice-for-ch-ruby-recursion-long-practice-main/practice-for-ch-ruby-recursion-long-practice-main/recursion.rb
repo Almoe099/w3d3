@@ -72,30 +72,17 @@ def bsearch(arr, t)
 
 end
 
-p bsearch([1, 2, 3], 1) # => 0
-p bsearch([2, 3, 4, 5], 3) # => 1
-p bsearch([2, 4, 6, 8, 10], 6) # => 2
-p bsearch([1, 3, 4, 5, 9], 5) # => 3
-p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
-
 
 def merge_sort(array)
     return array if array.length <= 1
 
+
+
 end
 
 def merge(arr1, arr2)
-
-    arr1 + arr2
-
+    
 end
 
-# arr = [6, 5, 3, 1, 8, 7, 24]
 
-arr = [17, 12]
-17 <=> 12 == -1 swap
-17 <=> 12 ==  1 keep
-17 <=> 12 == -1
 
