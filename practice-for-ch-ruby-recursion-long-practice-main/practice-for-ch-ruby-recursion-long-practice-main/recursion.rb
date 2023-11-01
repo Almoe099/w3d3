@@ -11,8 +11,6 @@ end
 # p exponent(2, 2)
 # p exponent(2, 4)
 
-
-# 
 def deep_dup(arr)
  return [arr] if !arr.is_a?(Array)
 
@@ -52,53 +50,52 @@ end
 
 # p fibonacci(6)
 
-def bsearch(arr, n)
-    return nil if arr.count(n) == 0
-    return 0 if arr.length == 1
+def bsearch(arr, t)
 
-    sorted = arr.sort
-    mid_idx = sorted.length / 2
+    return nil if arr.length == 0
 
-    if arr[mid_idx] == n
-        return mid_idx
-    end
+    mid_idx = arr.length / 2
+    return mid_idx if arr[mid_idx] == t
 
-    left = sorted[0...mid_idx]
-    right = sorted[mid_idx + 1 .. -1]
+    left = arr[0...mid_idx]
+    right = arr[mid_idx+1..-1]
 
-    if sorted[mid_idx] < n
-        bsearch(right, n)
+    if t < arr[mid_idx]
+        bsearch(left, t)
     else
-        bsearch(left, n)
-
-    # sorted = arr.sort
-    # mid_idx = sorted.length / 2
-
-    # if sorted[mid_idx] == n
-    #     return mid_idx
-    # elsif sorted[mid_idx] > n
-    #     bsearch(arr[0...mid_idx], n)
-    # elsif sorted[mid_idx] < n
-    #     bsearch(arr[mid_idx+1..-1], n)
-    # end
-
-    # arr[1..-1]
-
+        if bsearch(right, t) == nil
+            return nil
+        else
+            bsearch(right, t) + mid_idx + 1
+        end
+    end
 
 end
 
-# p bsearch([1, 2, 3], 1) # => 0
-# p bsearch([2, 3, 4, 5], 3) # => 1
-# p bsearch([2, 4, 6, 8, 10], 6) # => 2
-# p bsearch([1, 3, 4, 5, 9], 5) # => 3
-# p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-# p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-# p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+p bsearch([1, 2, 3], 1) # => 0
+p bsearch([2, 3, 4, 5], 3) # => 1
+p bsearch([2, 4, 6, 8, 10], 6) # => 2
+p bsearch([1, 3, 4, 5, 9], 5) # => 3
+p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+
 
 def merge_sort(array)
+    return array if array.length <= 1
 
 end
 
 def merge(arr1, arr2)
 
+    arr1 + arr2
+
 end
+
+# arr = [6, 5, 3, 1, 8, 7, 24]
+
+arr = [17, 12]
+17 <=> 12 == -1 swap
+17 <=> 12 ==  1 keep
+17 <=> 12 == -1
+
