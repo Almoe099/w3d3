@@ -76,13 +76,32 @@ end
 def merge_sort(array)
     return array if array.length <= 1
 
+    mid_idx = array.length / 2
+
+    left = array[0...mid_idx]
+    right = array[mid_idx..-1]
+
+    merge(merge_sort(left), merge_sort(right))
 
 
 end
 
 def merge(arr1, arr2)
-    
+    new_arr = []
+    i = 0
+ 
+    if arr1[0] < arr2[0] #&& arr1[0] != nil
+        new_arr << arr1.shift
+    else
+        new_arr << arr2.shift
+    end
+ 
+
+
+
+    new_arr 
+    # + arr1 + arr2
 end
 
 
-
+p merge([19,40], [8, 1])
