@@ -68,7 +68,7 @@ def bsearch(arr, n)
     # end
 
 
-
+aaaa
     # arr[1..-1]
 
 
