@@ -83,7 +83,6 @@ def merge_sort(array)
 
     merge(merge_sort(left), merge_sort(right))
 
-
 end
 
 def merge(arr1, arr2)
@@ -100,18 +99,22 @@ end
 
 
 def subsets(arr)
-    return [] if arr.length == 0
-    return [[], arr] if arr.length == 1
+    return [arr] if arr.length == 0
+    return [[]] + [arr] if arr.length == 1
 
-    new_arr = []
+   last = arr.last
 
-    arr.each do |ele|
-        new_arr << subsets(arr)
-    end
+   subsets(arr[0...-1]) << [last] << [1, 3] << [2,3] << arr
+   
 end
 
-subsets([]) # => [[]]
-subsets([1]) # => [[], [1]]
-subsets([1, 2]) # => [[], [1], [2], [1, 2]]
-subsets([1, 2, 3])
+p subsets([]) # => [[]]
+p subsets([1]) # => [[], [1]]
+p subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+p subsets([1, 2, 3])
 # => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
+
+
+# def permutations
+# end
