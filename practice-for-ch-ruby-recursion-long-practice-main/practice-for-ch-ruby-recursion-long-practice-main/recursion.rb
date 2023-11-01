@@ -88,20 +88,30 @@ end
 
 def merge(arr1, arr2)
     new_arr = []
-    i = 0
- 
-    if arr1[0] < arr2[0] #&& arr1[0] != nil
-        new_arr << arr1.shift
-    else
-        new_arr << arr2.shift
+    while arr1.length != 0 && arr2.length != 0
+        if arr1[0] < arr2[0]
+            new_arr << arr1.shift
+        else
+            new_arr << arr2.shift
+        end
     end
- 
-
-
-
-    new_arr 
-    # + arr1 + arr2
+    new_arr + arr1 + arr2
 end
 
 
-p merge([19,40], [8, 1])
+def subsets(arr)
+    return [] if arr.length == 0
+    return [[], arr] if arr.length == 1
+
+    new_arr = []
+
+    arr.each do |ele|
+        new_arr << subsets(arr)
+    end
+end
+
+subsets([]) # => [[]]
+subsets([1]) # => [[], [1]]
+subsets([1, 2]) # => [[], [1], [2], [1, 2]]
+subsets([1, 2, 3])
+# => [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
